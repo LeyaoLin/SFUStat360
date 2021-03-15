@@ -177,6 +177,9 @@ c(obj_addr(l1),obj_addr(l1[[1]]),obj_addr(l1[[2]]),obj_addr(l1[[3]]))
 
 * (Note: ref() will print a nicely formatted version of the above, 
 but it doesn't work with in my slides.)
+# ```{r}
+# ref(l1)
+# ```
 
 
 ## Copy-on-modify in lists
@@ -189,10 +192,12 @@ are modified, rather than the entire list.
 
 ```{r}
 l1 <- list(c(1,2), c(3,4), c(5,6,7))
-c(obj_addr(l1),obj_addr(l1[[1]]),obj_addr(l1[[2]]),obj_addr(l1[[3]]))
+#c(obj_addr(l1),obj_addr(l1[[1]]),obj_addr(l1[[2]]),obj_addr(l1[[3]]))
+ref(l1)
 tracemem(l1)
 l1[[1]] <- 55
-c(obj_addr(l1),obj_addr(l1[[1]]),obj_addr(l1[[2]]),obj_addr(l1[[3]]))
+#c(obj_addr(l1),obj_addr(l1[[1]]),obj_addr(l1[[2]]),obj_addr(l1[[3]]))
+ref(l1)
 ```
 
 ## Copies of lists are "shallow"
